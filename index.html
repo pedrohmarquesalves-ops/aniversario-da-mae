@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff719a">
+<title>Feliz Aniversário, Mãe! ❤️</title>
+
+<style>
+:root {
+  --pink: #ff719a;
+  --pink-light: #ffe0eb;
+  --yellow: #ffdf79;
+  --purple: #b99aff;
+  --blue: #a7e7f5;
+  --text: #543448;
+  --white: #fffdfd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: var(--text);
+  background: #fff8fb;
+  overflow-x: hidden;
+}
+
+button { font: inherit; }
+
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 75px 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 20%, #fff1a8 0 8%, transparent 9%),
+    radial-gradient(circle at 90% 75%, #ffc2d7 0 10%, transparent 11%),
+    linear-gradient(145deg, #ffb7d0, #ffe7a9 52%, #c6f1ff);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  animation: appear 1.2s ease both;
+}
+
+.tag {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #ffffffb8;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 1.04;
+  color: #a92c60;
+  text-shadow: 3px 4px 0 #ffffff8a;
+}
+
+.hero h1 span {
+  display: block;
+  color: #7845a7;
+}
+
+.hero p {
+  max-width: 550px;
+  margin: 24px auto;
+  font-size: clamp(1.05rem, 3vw, 1.3rem);
+  line-height: 1.7;
+}
+
+.primary-btn {
+  display: inline-block;
+  border: none;
+  border-radius: 40px;
+  padding: 16px 26px;
+  background: #e9447c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 7px 0 #b92d61;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 0 #b92d61;
+}
+
+.primary-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #b92d61;
+}
+
+.decor {
+  position: absolute;
+  z-index: 1;
+  font-size: clamp(2rem, 6vw, 4rem);
+  animation: float 4s ease-in-out infinite;
+  user-select: none;
+}
+
+.d1 { top: 12%; left: 9%; }
+.d2 { top: 20%; right: 10%; animation-delay: -1s; }
+.d3 { bottom: 15%; left: 12%; animation-delay: -2s; }
+.d4 { bottom: 12%; right: 12%; animation-delay: -.5s; }
+
+section { padding: 85px 20px; }
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-heading .emoji { font-size: 2.5rem; }
+
+.section-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  color: #b3376a;
+  margin: 12px 0;
+}
+
+.section-heading p {
+  line-height: 1.8;
+  max-width: 650px;
+  margin: auto;
+}
+
+.intro {
+  background: var(--white);
+  text-align: center;
+}
+
+.intro-card {
+  max-width: 780px;
+  margin: auto;
+  padding: clamp(25px, 6vw, 55px);
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffe4ed, #fff2c8);
+  box-shadow: 0 12px 35px #c96d941a;
+}
+
+.intro-card p {
+  font-family: Georgia, serif;
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.memories {
+  background: linear-gradient(180deg, #fff6fb, #fff0d7);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.photo-card {
+  overflow: hidden;
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 8px 25px #85445a15;
+  transition: transform .3s;
+}
+
+.photo-card:hover {
+  transform: translateY(-7px) rotate(-1deg);
+}
+
+.photo-placeholder {
+  aspect-ratio: 4 / 4.3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px;
+  text-align: center;
+  background: linear-gradient(145deg, #ffc9dc, #ffedb2);
+}
+
+.photo-card:nth-child(2) .photo-placeholder {
+  background: linear-gradient(145deg, #c9efff, #e3d1ff);
+}
+
+.photo-card:nth-child(3) .photo-placeholder {
+  background: linear-gradient(145deg, #ffe0a8, #ffc5d9);
+}
+
+.photo-placeholder .big-emoji { font-size: 3.5rem; }
+
+.photo-placeholder p {
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 4.3;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-caption {
+  padding: 18px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.photo-caption h3 {
+  color: #bd3f73;
+  margin-bottom: 7px;
+}
+
+.love-note {
+  background: linear-gradient(135deg, #f9d9ff, #ffe2b2, #ffd6e5);
+  text-align: center;
+}
+
+.note-card {
+  max-width: 760px;
+  margin: auto;
+  background: #fffdf8f2;
+  border: 2px dashed #ef9ab9;
+  border-radius: 25px;
+  padding: clamp(25px, 6vw, 55px);
+  box-shadow: 0 12px 35px #a74c7418;
+}
+
+.note-card .envelope {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.note-card h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #b3376a;
+  margin-bottom: 18px;
+}
+
+.letter {
+  display: none;
+  text-align: left;
+  line-height: 2;
+  font-size: 1.08rem;
+  margin-top: 28px;
+  white-space: pre-line;
+  animation: appear .8s ease both;
+}
+
+.letter.show { display: block; }
+
+.letter-signature {
+  text-align: right;
+  margin-top: 25px;
+  color: #b3376a;
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+}
+
+.final-section {
+  text-align: center;
+  background: #fffdfd;
+  padding-bottom: 100px;
+}
+
+.final-message {
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 4.3rem);
+  color: #e9447c;
+  line-height: 1.3;
+}
+
+.final-section p {
+  margin: 20px auto;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+footer {
+  padding: 30px 20px;
+  text-align: center;
+  background: #ffe3ed;
+  line-height: 1.8;
+}
+
+footer span { color: #d6336c; }
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 100;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+.heart {
+  position: fixed;
+  z-index: 99;
+  bottom: -30px;
+  pointer-events: none;
+  animation: rise linear forwards;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.hidden.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-18px) rotate(7deg); }
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(var(--drift), 110vh, 0) rotate(720deg);
+    opacity: .8;
+  }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-115vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: auto;
+  }
+
+  .photo-card:hover { transform: none; }
+  section { padding: 65px 18px; }
+  .decor { opacity: .75; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero" id="inicio">
+  <span class="decor d1">🎈</span>
+  <span class="decor d2">🌷</span>
+  <span class="decor d3">🎁</span>
+  <span class="decor d4">💖</span>
+
+  <div class="hero-content">
+    <div class="tag">✨ UM DIA MUITO ESPECIAL ✨</div>
+
+    <h1>Feliz aniversário,<span>mãe! ❤️</span></h1>
+
+    <p>
+      Hoje é dia de celebrar a vida de uma das pessoas
+      mais importantes do mundo para mim.
+      Preparei uma pequena surpresa para você!
+    </p>
+
+    <button class="primary-btn" onclick="comecarSurpresa()">
+      Abrir minha surpresa 💝
+    </button>
+  </div>
+</header>
+
+<main>
+
+<section class="intro" id="mensagem">
+  <div class="container">
+
+    <div class="section-heading hidden">
+      <div class="emoji">🌻</div>
+      <h2>Hoje o dia é todinho seu!</h2>
+      <p>
+        Porque pessoas especiais merecem mais do que presentes.
+        Merecem saber o quanto são amadas.
+      </p>
+    </div>
+
+    <div class="intro-card hidden">
+      <p> Mãe, eu queria que você pudesse enxergar por alguns
+      instantes o quanto é especial para mim.
+      Nem sempre consigo colocar em palavras tudo o que sinto,
+      mas hoje quero tentar.
+
+      Obrigado por fazer parte da minha vida, por cada gesto
+      de carinho, por cada conselho e por todos os momentos
+      que fazem nossa história ser tão única.
+
+      Que seu novo ciclo seja cheio de saúde, paz, alegria,
+      sonhos realizados e muitos motivos para sorrir.
+
+      Você merece todas as coisas boas deste mundo! ❤️</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="memories" id="memorias">
+  <div class="container">
+
+    <div class="section-heading hidden">
+      <div class="emoji">📸</div>
+      <h2>Nossas memórias</h2>
+      <p>
+        Alguns momentos ficam guardados para sempre.
+        Aqui vamos colocar um pouquinho da nossa história.
+      </p>
+    </div>
+
+    <div class="photo-grid">
+
+      <article class="photo-card hidden">
+        <div class="photo-placeholder">
+          <span class="big-emoji">🖼️</span>
+          <p>Nossa primeira foto aqui!</p>
+        </div>
+        <div class="photo-caption">
+          <h3>Momentos especiais</h3>
+          <p>Uma lembrança que sempre vai ter lugar no meu coração.</p>
+        </div>
+      </article>
+
+      <article class="photo-card hidden">
+        <div class="photo-placeholder">
+          <span class="big-emoji">🥰</span>
+          <p>Uma lembrança inesquecível</p>
+        </div>
+        <div class="photo-caption">
+          <h3>Carinho que não tem preço</h3>
+          <p>Porque os melhores momentos são aqueles que vivemos juntos.</p>
+        </div>
+      </article>
+
+      <article class="photo-card hidden">
+        <div class="photo-placeholder">
+          <span class="big-emoji">💖</span>
+          <p>Mais uma foto nossa</p>
+        </div>
+        <div class="photo-caption">
+          <h3>Para guardar para sempre</h3>
+          <p>Que a vida ainda nos dê muitos momentos felizes.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="love-note" id="carta">
+  <div class="container">
+
+    <div class="note-card hidden">
+      <div class="envelope">💌</div>
+      <h2>Uma cartinha para você</h2>
+
+      <p>
+        Tem coisas que a gente sente no coração e merece
+        dizer com calma. Fiz esta parte especialmente para você.
+      </p>
+
+      <button
+        class="primary-btn"
+        id="letterButton"
+        onclick="abrirCarta()"
+        style="margin-top: 24px;"
+      >
+        Abrir minha cartinha 💗
+      </button>
+
+      <div class="letter" id="letter">
+        Mãe,
+
+        Hoje é o seu aniversário, mas quem ganhou um presente
+        fui eu: o privilégio de ter você na minha vida.
+
+        Sou muito grato por tudo o que você representa para mim.
+        Por cada cuidado, cada palavra, cada ensinamento e por
+        todas as vezes em que seu carinho fez a diferença.
+
+        Sei que nem sempre consigo demonstrar tudo o que sinto,
+        mas quero que você nunca duvide do tamanho do meu amor
+        e da importância que tem na minha vida.
+
+        Desejo que nunca faltem motivos para sorrir, pessoas
+        que te façam bem, saúde para aproveitar cada momento
+        e coragem para realizar todos os seus sonhos.
+
+        Que este novo ano da sua vida seja tão bonito quanto
+        o carinho que você espalha por onde passa.
+
+        Feliz aniversário, mãe! Que a vida te devolva em dobro
+        todo o bem que você faz.
+
+        Te amo muito! ❤️
+
+        <div class="letter-signature">
+          Com todo o meu amor, seu filho. ❤️
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="final-section">
+  <div class="container hidden">
+
+    <div style="font-size: 3rem; margin-bottom: 20px;">
+      🎂🎉💐
+    </div>
+
+    <h2 class="final-message">Feliz vida, mãe!</h2>
+
+    <p>
+      Que seu dia seja cheio de amor, abraços, sorrisos
+      e tudo aquilo que faz seu coração feliz.
+    </p>
+
+    <button class="primary-btn" onclick="celebrar()">
+      Mais uma chuva de amor! 💖
+    </button>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Feito com muito amor, especialmente para você. <span>❤️</span>
+  <br>
+  O melhor presente é ter você na minha vida.
+</footer>
+
+<script>
+
+function comecarSurpresa() {
+  document.getElementById("mensagem").scrollIntoView({
+    behavior: "smooth"
+  });
+
+  celebrar();
+}
+
+function abrirCarta() {
+  const carta = document.getElementById("letter");
+  const botao = document.getElementById("letterButton");
+
+  carta.classList.toggle("show");
+
+  if (carta.classList.contains("show")) {
+    botao.textContent = "Fechar cartinha 💌";
+
+    carta.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+
+    celebrar();
+  } else {
+    botao.textContent = "Abrir minha cartinha 💗";
+  }
+}
+
+function celebrar() {
+  const cores = [
+    "#ff719a",
+    "#ffdf79",
+    "#b99aff",
+    "#a7e7f5",
+    "#ff9f68",
+    "#ffffff"
+  ];
+
+  for (let i = 0; i < 65; i++) {
+    const item = document.createElement("span");
+
+    item.className = "confetti";
+    item.textContent = Math.random() > 0.5 ? "✦" : "●";
+
+    item.style.left = Math.random() * 100 + "vw";
+
+    item.style.color = cores[
+      Math.floor(Math.random() * cores.length)
+    ];
+
+    item.style.fontSize = (Math.random() * 10 + 7) + "px";
+
+    item.style.setProperty(
+      "--drift",
+      (Math.random() * 200 - 100) + "px"
+    );
+
+    item.style.animationDuration =
+      (Math.random() * 2 + 2) + "s";
+
+    document.body.appendChild(item);
+
+    setTimeout(() => item.remove(), 4500);
+  }
+
+  for (let i = 0; i < 12; i++) {
+    setTimeout(() => {
+      const coracao = document.createElement("span");
+
+      coracao.className = "heart";
+
+      coracao.textContent = ["❤️", "💖", "💕", "💗"][
+        Math.floor(Math.random() * 4)
+      ];
+
+      coracao.style.left = Math.random() * 100 + "vw";
+
+      coracao.style.fontSize =
+        (Math.random() * 18 + 18) + "px";
+
+      coracao.style.animationDuration =
+        (Math.random() * 3 + 3) + "s";
+
+      document.body.appendChild(coracao);
+
+      setTimeout(() => coracao.remove(), 6500);
+
+    }, i * 120);
+  }
+}
+
+const observador = new IntersectionObserver((entradas) => {
+  entradas.forEach((entrada) => {
+    if (entrada.isIntersecting) {
+      entrada.target.classList.add("visible");
+      observador.unobserve(entrada.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".hidden").forEach((elemento) => {
+  observador.observe(elemento);
+});
+
+</script>
+
+</body>
+</html>
